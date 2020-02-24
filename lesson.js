@@ -11,8 +11,11 @@ pageUpdate()
 setInterval(function() {
   currentRow = processNextRow(currentRow)
   wrap.appendChild(currentRow)
+  if (wrap.children.length > 100) {
+    wrap.removeChild(wrap.childNodes[0])
+  }
   pageUpdate()
-}, 10)
+}, 100)
 
 setInterval(function() {
   if (currentRule++ === 256) {
